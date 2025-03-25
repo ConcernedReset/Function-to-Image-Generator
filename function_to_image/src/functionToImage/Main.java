@@ -8,7 +8,7 @@ import PicLib.PictureFrame;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// TODO add recursive portal to have the image repeat itself indefinitely
 		Picture picture = new Picture(256*3, 256*4);
 		Pixel[][] pixels = picture.getPixels2D();
 		PictureFrame frame = new PictureFrame();
@@ -56,8 +56,10 @@ public class Main {
 					
 					// use & 0xFFFFFF to mask out certian colors, each 2 f's is a color in rgb 
 					
+					y = (y-t==0) ? y-t-1 : y;
 					
-					p.setColor(new Color((y^x) >> 2 & mask));
+					
+					p.setColor(new Color((int)(Math.pow(x, 2) + 90)/(y-t) & mask));
 					
 				}
 			}
