@@ -43,6 +43,7 @@ public class Main {
 					// Basic Fractal : x^y
 					// Geometry : x^x + y^y
 					// Noise : (int) (Math.random() * 100)
+					// Blurry Binary Fractal : (int)(x +Math.random() * 10)^(int)(y + Math.random() * 10)
 					// Deconstructing binary fractal : ((int)((x^y) - t)
 					// Deconstruction bianary fractal different : (x^y)*t
 					// 3d Beach : (Math.pow(x, 2) + 90)/(y+t)
@@ -59,7 +60,7 @@ public class Main {
 					y = (y-t==0) ? y-t-1 : y;
 					
 					
-					p.setColor(new Color((int)(Math.pow(x, 2) + 90)/(y-t) & mask));
+					p.setColor(new Color(x^y & mask));
 					
 				}
 			}
