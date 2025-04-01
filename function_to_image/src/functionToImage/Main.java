@@ -42,6 +42,7 @@ public class Main {
 					
 					// Basic Fractal : x^y
 					// Geometry : x^x + y^y
+					// sumEvens Art : sumEvens(x^y)*100
 					// Noise : (int) (Math.random() * 100)
 					// Blurry Binary Fractal : (int)(x +Math.random() * 10)^(int)(y + Math.random() * 10)
 					// Deconstructing binary fractal : ((int)((x^y) - t)
@@ -62,7 +63,7 @@ public class Main {
 					x = (x-t==0) ? x-t+1 : x;
 					
 					
-					p.setColor(new Color(sumEvens(x&t)*100 & mask));
+					p.setColor(new Color(sumEvens(x^y)*100 & mask));
 					
 				}
 			}
