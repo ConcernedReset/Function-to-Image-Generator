@@ -13,6 +13,8 @@ public class Main {
 		Pixel[][] pixels = picture.getPixels2D();
 		PictureFrame frame = new PictureFrame();
 		int t = 1;
+		System.out.println(multiplyEvens(8));
+		
 		
 		while (true)
 		{
@@ -59,8 +61,8 @@ public class Main {
 					
 					// use & 0xFFFFFF to mask out certian colors, each 2 f's is a color in rgb 
 					
-					y = (y-t==0) ? y-t+1 : y;
-					x = (x-t==0) ? x-t+1 : x;
+					//y = (y-t==0) ? y-t+1 : y;
+					//x = (x-t==0) ? x-t+1 : x;
 					
 					
 					p.setColor(new Color(sumEvens(x^y)*100 & mask));
@@ -72,40 +74,32 @@ public class Main {
 	}
 	
 	public static int sumEvens(int num)
-
 	{
-
 		if (num < 10 && num % 2 == 0)
-
 		{
-
 			return num;
-
 		}
-
 		else if (num < 10)
-
 		{
-
 			return 0;
-
 		}
-
 		else if (num >= 10 && num % 2 == 0)
-
 		{
-
 			return num % 10 + sumEvens(num / 10);
-
 		}
-
 		else
-
 		{
-
 			return sumEvens(num / 10);
-
 		}
+	}
 	
+	public static int multiplyEvens(int num)
+	{
+		if (num == 1)
+			return 2;
+		else if (num <= 0)
+			throw new IllegalArgumentException();
+		
+		return multiplyEvens(num-1) * num*2;
 	}
 }
