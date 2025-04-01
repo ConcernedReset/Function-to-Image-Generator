@@ -54,17 +54,57 @@ public class Main {
 					// Zoom out Insanity : y*t*t*2^x*t*t*2
 					// 4d Beach : (Math.pow(x, 2) + 90)/(y-t) 					: Don't forget to set y = (y-t==0) ? y-t-1 : y;
 					// Photon Cannon : (int) (Math.pow(x, 2) + 90)/(y-300) * t  : Don't forget to set y = (y-300==0) ? y-300-1 : y;
+					// God Complex Chessboard : sumEvens(x*t*t*t^(y*t*t*t))*100 : Try putting t to higher powers
 					
 					// use & 0xFFFFFF to mask out certian colors, each 2 f's is a color in rgb 
 					
-					y = (y-t==0) ? y-t-1 : y;
+					y = (y-t==0) ? y-t+1 : y;
+					x = (x-t==0) ? x-t+1 : x;
 					
 					
-					p.setColor(new Color(x^y & mask));
+					p.setColor(new Color(sumEvens(x&t)*100 & mask));
 					
 				}
 			}
 			frame.setPicture(picture);
 		}
+	}
+	
+	public static int sumEvens(int num)
+
+	{
+
+		if (num < 10 && num % 2 == 0)
+
+		{
+
+			return num;
+
+		}
+
+		else if (num < 10)
+
+		{
+
+			return 0;
+
+		}
+
+		else if (num >= 10 && num % 2 == 0)
+
+		{
+
+			return num % 10 + sumEvens(num / 10);
+
+		}
+
+		else
+
+		{
+
+			return sumEvens(num / 10);
+
+		}
+	
 	}
 }
