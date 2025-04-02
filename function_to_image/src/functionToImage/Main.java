@@ -6,14 +6,14 @@ import PicLib.PictureFrame;
 
 
 public class Main {
-
+	
 	public static void main(String[] args) {
 		// TODO add recursive portal to have the image repeat itself indefinitely
 		Picture picture = new Picture(256*3, 256*4);
 		Pixel[][] pixels = picture.getPixels2D();
 		PictureFrame frame = new PictureFrame();
 		int t = 1;
-		System.out.println(multiplyEvens(8));
+		System.out.println(Funcs.multiplyEvens(8));
 		
 		
 		while (true)
@@ -65,7 +65,7 @@ public class Main {
 					//x = (x-t==0) ? x-t+1 : x;
 					
 					
-					p.setColor(new Color(sumEvens(x^y)*100 & mask));
+					p.setColor(new Color(Funcs.sumEvens(x^y)*100 & mask));
 					
 				}
 			}
@@ -73,33 +73,5 @@ public class Main {
 		}
 	}
 	
-	public static int sumEvens(int num)
-	{
-		if (num < 10 && num % 2 == 0)
-		{
-			return num;
-		}
-		else if (num < 10)
-		{
-			return 0;
-		}
-		else if (num >= 10 && num % 2 == 0)
-		{
-			return num % 10 + sumEvens(num / 10);
-		}
-		else
-		{
-			return sumEvens(num / 10);
-		}
-	}
 	
-	public static int multiplyEvens(int num)
-	{
-		if (num == 1)
-			return 2;
-		else if (num <= 0)
-			throw new IllegalArgumentException();
-		
-		return multiplyEvens(num-1) * num*2;
-	}
 }
