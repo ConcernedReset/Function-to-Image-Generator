@@ -128,6 +128,14 @@ public class PictureFrame
     frame.setVisible(false);
     frame.dispose();
   }
+
+  /**
+   * Returns the underlying JFrame. Not in original project.
+   */
+  public JFrame getFrame()
+  {
+    return frame;
+  }
   
   /**
    * Method to set the title for the picture frame
